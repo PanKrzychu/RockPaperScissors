@@ -4,6 +4,15 @@ let playerScore = 0,
   gameScore = 0;
 let result;
 
+function clean() {
+  tab = ["ROCK", "PAPER", "SCISSORS"];
+
+  tab.forEach(element => {
+    $("#" + element).removeClass(["winner", "loser"]);
+    $("#square_game").removeClass(["winner", "loser"]);
+  });
+}
+
 function losowanie() {
   let los = Math.floor(Math.random() * 3);
 
@@ -19,10 +28,9 @@ $(".square_choice").click(function() {
 });
 
 function game(choice) {
+  clean();
   losowanie();
   $("#square_game").html("The computer chose: <br>" + gameChoice);
-
-  console.log(choice);
 
   if (choice === gameChoice) {
     result = "DRAW";
@@ -34,9 +42,13 @@ function game(choice) {
     ) {
       result = "YOU WON";
       playerScore++;
+      $("#" + choice).addClass("winner");
+      $("#square_game").addClass("loser");
     } else {
       result = "YOU LOST";
       gameScore++;
+      $("#" + choice).addClass("loser");
+      $("#square_game").addClass("winner");
     }
   }
 

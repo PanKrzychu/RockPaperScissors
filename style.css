@@ -73,11 +73,21 @@ p {
 #square_game {
   height: 150px;
   width: 300px;
-  border: 1px solid #90caf9;
+  border: 1px solid;
   border-radius: 6px;
   text-align: center;
 }
 
 #square_score {
   text-align: center;
+}
+
+.winner {
+  border-color: #33ff00;
+  color: #33ff00;
+}
+
+.loser {
+  border-color: #ff0000;
+  color: #ff0000;
 }
