@@ -8,8 +8,8 @@ function clean() {
   tab = ["ROCK", "PAPER", "SCISSORS"];
 
   tab.forEach(element => {
-    $("#" + element).removeClass(["winner", "loser"]);
-    $("#square_game").removeClass(["winner", "loser"]);
+    $("#" + element).removeClass(["winner", "loser", "draw"]);
+    $("#square_game").removeClass(["winner", "loser", "draw"]);
   });
 }
 
@@ -34,6 +34,8 @@ function game(choice) {
 
   if (choice === gameChoice) {
     result = "DRAW";
+    $("#" + choice).addClass("draw");
+    $("#square_game").addClass("draw");
   } else {
     if (
       (choice === "ROCK" && gameChoice === "SCISSORS") ||
